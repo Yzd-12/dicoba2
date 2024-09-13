@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menambahkan elemen audio -->
+    <audio id="background-music" src="ada.mp3" autoplay loop></audio>
+
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="logo">
+                <h1 class="animated-text">
+                    <span class="symbol">✧</span> Tsyyacz <span class="symbol">✧</span>
+                </h1>
+            </div>
+            <h1 class="animated-text">Tsania_zah 😊</h1>
+            <p class="animated-paragraph"> TASYA </p>
+            <p class="animated-paragraph"> Gadis Yang Berbeda Dari Yang lain 😋</p>
+            <a href="https://wa.me/6283141170589?text=Halo%20bro,%20ayo%20mabar!" class="animated-button" target="_blank">Let's Go!</a>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="gallery-item"><img src="1.jpg" alt="Gambar Gaming 1"></div>
+                <div class="gallery-item"><img src="2.jpg" alt="Gambar Gaming 2"></div>
+                <div class="gallery-item"><img src="3.jpg" alt="Gambar Gaming 3"></div>
+                <div class="gallery-item"><img src="4.jpg" alt="Gambar Gaming 4"></div>
+                <div class="gallery-item"><img src="5.jpg" alt="Gambar Gaming 5"></div>
+                <div class="gallery-item"><img src="6.jpg" alt="Gambar Gaming 6"></div>
+                <div class="gallery-item"><img src="7.jpg" alt="Gambar Gaming 7"></div>
+                <div class="gallery-item"><img src="8.jpg" alt="Gambar Gaming 8"></div>
+            </div>
+            <button class="prev" onclick="moveGallery(-1)">&#10094;</button>
+            <button class="next" onclick="moveGallery(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let galleryIndex = 0;
+
+        function moveGallery(direction) {
+            const gallery = document.querySelector('.gallery');
+            const items = document.querySelectorAll('.gallery-item');
+            const itemWidth = items[0].clientWidth + 10; // Include margin
+            const maxIndex = items.length - 1;
+
+            galleryIndex += direction;
+
+            if (galleryIndex < 0) {
+                galleryIndex = maxIndex;
+            } else if (galleryIndex > maxIndex) {
+                galleryIndex = 0;
+            }
+
+            gallery.style.transform = `translateX(-${galleryIndex * itemWidth}px)`;
+        }
+    </script>
+</body>
+</html>
